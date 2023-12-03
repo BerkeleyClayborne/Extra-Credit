@@ -35,3 +35,25 @@ legal_N:
     bge $s1, 20, illegal_number   # Check if M <= 20
     bge $s2, 20, illegal_number   # Check if N <= 20
 
+ # All numbers are legal, proceed to Step 2
+    # ... (Step 2 code will go here)
+
+    # Exit the program
+    li $v0, 10
+    syscall
+
+input_number:
+    # Function to input an integer
+    li $v0, 4
+    syscall
+
+    li $v0, 5
+    syscall
+    jr $ra
+
+illegal_number:
+    # Display error message and prompt user again
+    li $v0, 4
+    la $a0, error_msg
+    syscall
+    j main
