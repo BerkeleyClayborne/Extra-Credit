@@ -20,3 +20,18 @@ main:
     # Step 1: Check if the input numbers are legal
     bge $s0, 1, legal_L       # Check if L > 0
     j illegal_number          # L is not legal, prompt again
+
+
+legal_L:
+    bge $s1, 1, legal_M       # Check if M > 0
+    j illegal_number          # M is not legal, prompt again
+
+legal_M:
+    bge $s2, 1, legal_N       # Check if N > 0
+    j illegal_number          # N is not legal, prompt again
+
+legal_N:
+    bge $s0, 20, illegal_number   # Check if L <= 20
+    bge $s1, 20, illegal_number   # Check if M <= 20
+    bge $s2, 20, illegal_number   # Check if N <= 20
+
